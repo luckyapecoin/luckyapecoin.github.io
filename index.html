@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <title>Home Page | LuckyApeCoin</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,17 +22,19 @@
 <link href="css/uicons-regular-rounded.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 <style type="text/css">
 body{
-color:#1e1e1e;
-font-family: 'Work Sans', sans-serif;
+color:#222222;
+font-family: 'Montserrat', sans-serif;
 font-weight:400;
 font-size:16px;
+    background:#FBFD00;
+    line-height:1.5;
 }
 	
 *:focus{
@@ -43,7 +44,7 @@ outline: 0 !important;
 	
 h1{
 font-weight:700;
-font-size:calc(1.875rem + 2.5vw);
+font-size:3.25em;
 letter-spacing:0px;
 }
 
@@ -71,8 +72,8 @@ letter-spacing:-0.04em;
 }
 	
 .hero-container{
-height:calc(100vh - 64px);
-min-height:calc(640px - 64px);
+height:calc(100vh - 122px);
+min-height:calc(640px - 122px);
 }
 	
 .hero-container p{
@@ -80,13 +81,13 @@ font-size:1.25em;
 }
 	
 .btn-primary{
-color: #e6007a;
+color: #222222;
 background-color: transparent;
-border-color: #e6007a;
+border-color: #222222;
 position: relative;
 z-index: 1;
 overflow: hidden;
-border: solid 1px #e6007a;
+border: solid 1px #222222;
 border-radius:2em;
 padding:16px 20px;
 font-weight:700;
@@ -94,9 +95,9 @@ letter-spacing:0px;
 }
 	
 .btn-primary:hover, .btn-primary:focus {
-background-color: #e6007a !important;
-font-color:#FFFFFF !important;
-border: solid 1px #e6007a !important;
+background-color: #222222 !important;
+color:#FBFD00 !important;
+border: solid 1px #222222 !important;
 }
 	
 .about-container{
@@ -190,8 +191,7 @@ font-size:1.25em;
 		
 h1{
 font-weight:700;
-font-size:calc(1.7rem + 1.5vw);
-letter-spacing:0px;
+font-size:4em;
 }
 }
 
@@ -202,7 +202,11 @@ letter-spacing:0px;
 .hero-container p{
 font-size:1.5em;
 }
-	
+    
+h1{
+font-size:5em;
+} 
+    
 .navbar-expand-lg .navbar-nav .nav-link {
 padding-right: 1.125rem;
 padding-left: 1.125rem;	
@@ -210,36 +214,39 @@ padding-left: 1.125rem;
 
 .navbar-expand-lg .navbar-nav .nav-item:last-child > .nav-link{
 padding-right: 0rem !important;
-}}
+}
+}
 
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+h1{
+font-size:5em;
+}
+} 
 
 @media (min-width: 1400px) {
 h1{
-font-weight:700;
-font-size:calc(3.375rem + 2.5vw);
-letter-spacing:0px;
+font-size:5em;
 }
 }
 </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light " id="#home">
+<div class="container d-flex flex-row justify-content-center align-items-center">
+<a class="navbar-brand" href="#"><img class="img-fluid" src="images/lape-logo-3.png" width="88px"></a>
 
-<nav class="navbar navbar-expand-lg navbar-light" id="#home">
-<div class="container">
-<a class="navbar-brand" href="#">LAPE<span style="color:#e6007a;">.</span></a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 </div>
 </nav>
 
-<div class="container hero-container py-5 d-flex flex-column justify-content-center align-items-center" data-aos="fade-up">
+
+<div class="container hero-container py-5 d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up">
 <div class="row">
 <div class="col-12 d-flex flex-column justify-content-center align-items-center">
-<img width="100%;" src="images/hero-image-2.svg"/>
-<p class="mt-5 mb-5 text-center">The biggest APE lottery token on Binance Smart Chain. Get a chance to win 5% of $LAPE transaction by simply holding $LAPE tokens.</p>
+<h1 class="hero-title">LuckyApeCoin</h1>
+<p class="mt-4 mb-5 text-center">The biggest APE lottery token on Binance Smart Chain. Get a chance to win 5% of $LAPE transaction by simply holding $LAPE tokens.</p>
 <div class="d-flex flex-column flex-sm-row mt-2 button-">
-<a type="button" class="btn btn-primary m-2" href="https://pancakeswap.finance/swap?outputCurrency=" target="_blank">Buy On Pancakeswap</a>
-<a type="button" class="btn btn-primary m-2" href="https://t.me/luckyapecoin" target="_blank">Join Our Telegram</a>
+<a type="button" class="btn btn-primary m-2" href="https://pancakeswap.finance/swap?outputCurrency=" target="_blank">BUY ON PANCAKESWAP</a>
+<a type="button" class="btn btn-primary m-2" href="https://t.me/luckyapecoin" target="_blank">JOIN OUR TELEGRAM</a>
 </div>
 </div>
 </div>
@@ -274,5 +281,6 @@ letter-spacing:0px;
 
 });
 		</script>
-</body>
-</html>
+
+
+</body></html>
