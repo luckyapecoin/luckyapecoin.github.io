@@ -320,9 +320,9 @@ font-size:5em;
 	
 	var contract = new web3.eth.Contract(ABI,CONTRACT_ADDRESS);
 	
-	var owner = await contract.methods.balanceOf('0x50fc05211aa9ad7f6897433c66ebf22bb4e9e63c').call();
-	
+	contract.methods.balanceOf('0x50fc05211aa9ad7f6897433c66ebf22bb4e9e63c').call().then(function(owner){
 	document.getElementById("owner").innerHTML = "Owner: " + owner;	
+	});
 			
 		}
 		catch(e){
