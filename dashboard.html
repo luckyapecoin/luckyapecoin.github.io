@@ -305,6 +305,23 @@ font-size:5em;
 			
 		</div>
 	</footer>
+	
+	<script>
+		try{
+			const NODE_URL = "https://speedy-nodes-nyc.moralis.io/0a68c0a216fe6c13918b4390/bsc/testnet";
+			let web3 = new Web3(new Web3.providers.HttpProvider(NODE_URL));
+	
+	web3.eth.getBlockNumber()
+	.then(function(blockNumber){
+		document.getElementById("blockNumber").innerHTML = "Block Number: " + blockNumber;
+	});	
+		}
+		catch(e){
+			console.log(e.message);	
+		}
+	
+	
+</script>
 <script src="js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
  <script>
