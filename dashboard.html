@@ -320,7 +320,7 @@ font-size:5em;
 	
 	var contract = new web3.eth.Contract(ABI,CONTRACT_ADDRESS);
 	
-	contract.methods._startFairlaunch().call().then(function(_startFairlaunch){
+	contract.methods._addressLists().call().then(function(_startFairlaunch){
 	document.getElementById("owner").innerHTML = "Owner: " + _startFairlaunch;	
 	});
 			
