@@ -31,6 +31,22 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 <style type="text/css">
     
+    .table-striped>tbody>tr:nth-of-type(odd) {
+    --bs-table-accent-bg: var(--bs-table-striped-bg);
+    color: rgb(251, 253, 0) !important;
+}
+    
+    .table {
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 15px -2px rgb(0 0 0 / 15%);
+    border: 0;
+    background: #222222;
+    font-size: 1em;
+    text-align: center;
+    color: rgb(251, 253, 0) !important;
+}
+    
     .fa {
     height: 60px;
     width: 60px;
@@ -260,8 +276,8 @@ font-size:5em;
 }
 </style>
 </head>
-<body style="min-height: 100vh;">
-<nav class="navbar navbar-expand-lg navbar-light" id="#home" style="position:fixed;top:0;left:0;width:100%;">
+<body style="min-height: 100vh;" data-aos-easing="ease" data-aos-duration="1000" data-aos-delay="0">
+<nav class="navbar navbar-expand-lg navbar-light" id="#home">
 <div class="container d-flex flex-row justify-content-center align-items-center">
 <a class="navbar-brand" href="#"><img class="img-fluid" src="images/lape-logo-3.png" width="88px"></a>
 
@@ -269,23 +285,63 @@ font-size:5em;
 </nav>
 
 
-<div style="position:fixed;top:0;left:0;width:100%;height:100%;"><div class="container hero-container d-flex flex-column justify-content-center align-items-center" style="height:100% !important;min-height:100% !important">
+<div class="container">
+
+
 <div class="row">
-<div class="col-12 d-flex flex-column justify-content-center align-items-center">
-<h1 class="hero-title">LuckyApeCoin</h1>
-<p class="mt-4 mb-4 text-center"><span id="blockNumber"></span><span id="owner"></span></p>
-<div class="d-flex flex-column flex-sm-row mt-2 button-">
-<a type="button" class="btn btn-primary m-2" href="#" target="">BUY ON PANCAKESWAP</a>
-<a type="button" class="btn btn-primary m-2" href="https://t.me/luckyapecoin" target="_blank">JOIN OUR TELEGRAM</a>
+
+<div class="col-12 col-lg-4 py-2">
+    <div class="dashboard-card-wrapper d-flex flex-column justify-content-center align-items-center p-3 h-100" style="background:#222222;border-radius:12px;"><span style="color:rgb(251, 253, 0);">$LAPE Tokens Rewarded</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700">123,456,789 $LAPE</span>
+<span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;">2,324.00 USD</span></div>   
 </div>
+
+<div class="col-12 col-lg-4 py-2">
+    <div class="dashboard-card-wrapper d-flex flex-column justify-content-center align-items-center p-3 h-100" style="background:#222222;border-radius:12px;"><span style="color:rgb(251, 253, 0);">Pot Lotto Amount</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700">123,456,789 $LAPE</span>
+<span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;">2,324.00 USD</span></div>   
+</div><div class="col-12 col-lg-4 py-2">
+    <div class="dashboard-card-wrapper d-flex flex-column justify-content-center align-items-center p-4 h-100" style="background:#222222;border-radius:12px;"><span style="color:rgb(251, 253, 0);">Pot Lottery Prize</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700">123,456,789 $LAPE</span>
+<span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;">2,324.00 USD</span></div>   
 </div>
+</div><div class="row">
+
+<div class="col-12 py-2">
+    <table class="table table-striped tokenomics-info-table d-none d-xl-table">
+                                        <tbody><tr style="font-weight:500">
+                                                <th class="py-3" style="font-size:1em;font-weight:400;">Wallet Address</th>
+<th class="py-3" style="font-size:1em;font-weight:400;">Tokens Received</th><th class="py-3" style="font-size:1em;font-weight:400;">Lottery Type</th>
+					</tr>
+					<tr style="font-weight:600;">
+						<td class="py-3">0x0db...5f6d</td>
+                                                
+<td class="py-3">123,456,789 $LAPE</td><td class="py-3">Pot Lotto</td>
+					</tr>
+					
+				</tbody></table>
+
+<table class="table table-striped tokenomics-info-table d-xl-none">
+                                        <tbody><tr>
+                                                <th style="font-size:1em;font-weight:400;" class="py-3">Private Presale Contributors</th>
+                                        </tr>
+					<tr>
+						<td class="py-3">
+                                                        <span class="d-block" style="font-weight:400;">Wallet Address</span>
+                                                        <span class="d-block" style="font-weight:600;">0x0db...5f6d</span>
+                                                        <span class="d-block mt-2" style="font-weight:400;">BNB Contribution</span>
+                                                        <span class="d-block" style="font-weight:600;">1 BNB</span>
+                                                </td>
+                                    
+					</tr>
+                                        
+				</tbody></table>   
 </div>
+
+
 </div>
 </div>
 
 
 	
-<footer class="footer-section" style="position:fixed;bottom:0;left:0;width:100%;">
+<footer class="footer-section">
 		<div class="container py-3">
 			<div class="row">
 				<div class="col-12">
@@ -357,6 +413,7 @@ font-size:5em;
 
 });
 		</script>
+
 
 
 
