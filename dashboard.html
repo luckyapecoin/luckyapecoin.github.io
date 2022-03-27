@@ -604,7 +604,7 @@ console.log(timeSince(d));
 
 document.getElementById('TXTimestamps').innerHTML = document.getElementById('TXTimestamp").innerHTML + ' ' + data[x][0];
 
-					a = moment(data[x][0] * 1000).format('YYYY/MM/DD hh:mm:ss A');
+					a = moment.utc(data[x][0] * 1000).format('YYYY/MM/DD hh:mm:ss A');
 					b = data[x][1];
 					c = parseInt(data[x][2]/1000000000);
 					
