@@ -561,8 +561,8 @@ console.log(timeSince(d));
 	
 	var contract = new web3.eth.Contract(ABI,CONTRACT_ADDRESS);
 	
-	contract.methods.lottoTotalAllLottoTokensSent().call().then(function(lottoTotalAllLottoTokensSent){
-	document.getElementById("totalAllLottoTokensSent").innerHTML = parseInt(lottoTotalAllLottoTokensSent/1000000000)  + " $LAPE";
+	contract.methods.lottoTotalAllLottoTokensSent().call().then(function(data){
+	document.getElementById("totalAllLottoTokensSent").innerHTML = parseInt(data/1000000000)  + " $LAPE";
 	});
 	
 			/*
