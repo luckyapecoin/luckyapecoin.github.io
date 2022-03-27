@@ -34,12 +34,16 @@
 
 <style type="text/css">
    
+ .lotto-history-body{
+     position:relative;
+    }
+    
     .lotto-history-wrapper{
-        opacity:0;    
+        display:none;    
     }
     
     .show{
-         opacity:1;   
+        display:block;  
     }
     
     .track-button{
@@ -58,19 +62,22 @@
         background:#FBFD00;
     }
     
-   .lotto-type-wrapper .lotto-type-button{
+    .lotto-type-buttons-wrapper{
+     border:2px solid #222222;
+        border-radius:12px;
+        overflow:hidden;
+    }
+    
+   .lotto-type-buttons-wrapper .lotto-type-button{
+       border:0;
     color: #FBFD00;
     padding: 6px 12px;
-    border-radius: 0px 12px 12px 0px;
-    border: 2px solid #222222;
     background: #222222;
     font-weight: 700;    
     }
     
-    .lotto-type-wrapper .selected{
+    .lotto-type-buttons-wrapper .selected{
     padding: 6px 12px;
-    border-radius: 12px 0px 0px 12px;
-    border: 2px solid #222222;
     background: #FBFD00;
     font-weight: 700;
     color:#222222;
@@ -353,11 +360,11 @@ font-size:5em;
 </div><div class="row mt-3">
     <div class="d-flex flex-row align-items-center justify-content-between"><span style="font-weight:700;font-size:2em;letter-spacing:-2px;">History</span>
 
-<div class="lotto-type-wrapper"><button id="txLottoButton" class="lotto-type-button selected">TX Lotto</button><button id="potLottoButton" class="lotto-type-button">Pot Lotto</button></div></div>
+<div class="lotto-type-buttons-wrapper"><button id="txLottoButton" class="lotto-type-button selected">TX Lotto</button><button id="potLottoButton" class="lotto-type-button selected">Pot Lotto</button></div></div>
 <div class="col-12 py-2">
     
-    
-    <div id="txLottoHistoryWrapper" class="lotto-history-wrapper show">
+    <div class="lotto-history-body">
+    <div id="txLottoHistoryWrapper" class="lotto-history-wrapper">
     
     <table class="table table-striped tokenomics-info-table d-none d-xl-table">
     		<thead><tr style="font-weight:500">
@@ -411,7 +418,7 @@ font-size:5em;
 				</tbody></table>
     </div>
 
-<div id="potLottoHistoryWrapper" class="lotto-history-wrapper">
+<div id="potLottoHistoryWrapper" class="lotto-history-wrapper show">
     
     <table class="table table-striped tokenomics-info-table d-none d-xl-table">
     		<thead><tr style="font-weight:500">
@@ -464,6 +471,8 @@ font-size:5em;
                                         
 				</tbody></table>
     </div>
+    </div>
+    
     
 	   
 </div>
@@ -506,7 +515,7 @@ font-size:5em;
 	    $("#potLottoButton").click(function(){
 	$("#potLottoButton").addClass("selected");
     $("#potLottoHistoryWrapper").addClass("show");
-	$("#ptxLottoButton").removeClass("selected");
+	$("#txLottoButton").removeClass("selected");
     $("#txLottoHistoryWrapper").removeClass("show");  
   });
 });
@@ -592,6 +601,7 @@ console.log(timeSince(d))
 
 });
 		</script>
+
 
 
 
