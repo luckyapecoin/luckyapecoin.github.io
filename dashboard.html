@@ -610,16 +610,19 @@ console.log(timeSince(d));
 			
 			contract.methods.lottoPotLottoHistory(0,0,10,0).call().then(function(data){
 				let a,b,c;
+				document.getElementById('mPotLottoHistoryTable').innerHTML = "";
+				document.getElementById('dPotXLottoHistoryTable').innerHTML = "";
 				for(let x = 0; x < data.length; x++){
 					if(data[x][0] == 0)
 						break;
 					
-					a = moment(data[x][0] * 1000).format('YYYY MM DD, hh:mm:ss a');
+					a = moment(data[x][0] * 1000).format('YYYY/MM/DD, hh:mm:ss a');
 					b = data[x][1];
 					c = parseInt(data[x][2]/1000000000);
 					
-					//document.getElementById('mPotLottoHistoryTable').innerHTML = '<tr><td class="py-3"><span class="d-block" style="font-weight:400;">Date</span><span class="d-block" style="font-weight:600;">' + a.getFullYear() + '-' + a.getMonth() + '-' + a.getDate() + ' ' + a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds() + '</span><span class="d-block mt-2" style="font-weight:400;">Wallet Address</span><span class="d-block" style="font-weight:600;">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" href="#"><button class="track-button">Track</button></a></span><span class="d-block mt-2" style="font-weight:400;">Tokens Received</span><span class="d-block" style="font-weight:600;">' + c.toLocaleString() + ' $LAPE</span></td></tr>';
-					//document.getElementById('dPotXLottoHistoryTable').innerHTML = '<tr style="font-weight:600;"><td class="py-3">' + a.getFullYear() + '-' + a.getMonth() + '-' + a.getDate() + ' ' + a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds() + '</td><td class="py-3">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" href="#"><button class="track-button">Track</button></a></td><td class="py-3">' + c.toLocaleString() + ' $LAPE</td></tr>';
+					
+					document.getElementById('mPotLottoHistoryTable').innerHTML = document.getElementById('mPotLottoHistoryTable').innerHTML + '<tr><td class="py-3"><span class="d-block" style="font-weight:400;">Date</span><span class="d-block" style="font-weight:600;">' + a + '</span><span class="d-block mt-2" style="font-weight:400;">Wallet Address</span><span class="d-block" style="font-weight:600;">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" href="#"><button class="track-button">Track</button></a></span><span class="d-block mt-2" style="font-weight:400;">Tokens Received</span><span class="d-block" style="font-weight:600;">' + c.toLocaleString() + ' $LAPE</span></td></tr>';
+					document.getElementById('dPotXLottoHistoryTable').innerHTML = document.getElementById('dPotXLottoHistoryTable').innerHTML + '<tr style="font-weight:600;"><td class="py-3">' + a + '</td><td class="py-3">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" href="#"><button class="track-button">Track</button></a></td><td class="py-3">' + c.toLocaleString() + ' $LAPE</td></tr>';
 					console.log('Time: ' + data[x][0] + ' Address: ' + data[x][1] + ' Amount: ' + data[x][2]);
 					console.log(a);
 				}
