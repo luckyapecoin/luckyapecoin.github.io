@@ -340,7 +340,7 @@ font-size:5em;
 
 
 <div class="container">
-
+<p id="TXTimestamps"></p>
 
 <div class="row">
 
@@ -601,6 +601,9 @@ console.log(timeSince(d));
 				for(let x = 0; x < data.length; x++){
 					if(data[x][0] == 0)
 						break;
+
+document.getElementById('TXTimestamp').innerHTML = document.getElementById('TXTimestamp").innerHTML + ' ' + data[x][0];
+
 					a = moment(data[x][0] * 1000).format('YYYY/MM/DD hh:mm:ss A');
 					b = data[x][1];
 					c = parseInt(data[x][2]/1000000000);
