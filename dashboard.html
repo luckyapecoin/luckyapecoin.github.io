@@ -566,6 +566,11 @@ console.log(timeSince(d));
 	document.getElementById("totalAllLottoTokensSent").innerHTML = x.toLocaleString()  + " $LAPE";
 	});
 	
+			contract.methods.lottoCurrentPotLottoTokens().call().then(function(data){
+				let x = parseInt(data/1000000000);
+	document.getElementById("currentPotLottoTokens").innerHTML = x.toLocaleString()  + " $LAPE";
+	});
+			
 			/*
 	contract.methods.lottoCurrentPotLottoTokens().call().then(function(lottoCurrentPotLottoTokens){
 	document.getElementById("currentPotLottoTokens").innerHTML = parseInt(lottoCurrentPotLottoTokens/1000000000)  + " $LAPE";
