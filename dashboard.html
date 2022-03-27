@@ -562,7 +562,14 @@ console.log(timeSince(d))
 	var contract = new web3.eth.Contract(ABI,CONTRACT_ADDRESS);
 	
 	contract.methods.lottoTotalAllLottoTokensSent().call().then(function(lottoTotalAllLottoTokensSent){
-	document.getElementById("totalAllLottoTokensSent").innerHTML = parseInt(lottoTotalAllLottoTokensSent/1000000000)  + " $LAPE";	
+	document.getElementById("totalAllLottoTokensSent").innerHTML = parseInt(lottoTotalAllLottoTokensSent/1000000000)  + " $LAPE";
+	});
+	contract.methods.lottoCurrentPotLottoTokens().call().then(function(lottoCurrentPotLottoTokens){
+	document.getElementById("currentPotLottoTokens").innerHTML = parseInt(currentPotLottoTokens/1000000000)  + " $LAPE";
+	});
+		contract.methods.lottoPotLottoHistory(0,0,1,0).call().then(function(lastPotLottoDetails){
+	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = " $LAPE";
+			console.log(lastPotLottoDetails);
 	});
 			
 		}
