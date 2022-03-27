@@ -564,11 +564,7 @@ console.log(timeSince(d));
 		try{
 			const NODE_URL = "https://speedy-nodes-nyc.moralis.io/0a68c0a216fe6c13918b4390/bsc/testnet";
 			let web3 = new Web3(new Web3.providers.HttpProvider(NODE_URL));
-	web3.eth.getBlockNumber()
-	.then(function(blockNumber){
-		console.log(blockNumber);
-	});
-			
+		
 	var contract = new web3.eth.Contract(ABI,CONTRACT_ADDRESS);
 	
 	contract.methods.lottoTotalAllLottoTokensSent().call().then(function(data){
@@ -587,14 +583,14 @@ console.log(timeSince(d));
 	});
 			
 			contract.methods.lottoPotLottoHistory(0,0,1,0).call().then(function(data){
-				let a = new date(data[0][0] * 1000);
+				let a = new Date(data[0][0] * 1000);
 				let b = parseInt(data[0][2]/1000000000);
 	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = timeSince(a);
 	document.getElementById("recentPotLottoPayoutTokens").innerHTML = b.toLocaleString()  + " $LAPE";
 	});
 			
 			contract.methods.lottoTransactionLottoHistory(0,0,10,0).call().then(function(data){
-			console.log(data[0][0][1]);
+			console.log(data[0][0]);
 				console.log(data);
 	});
 			
