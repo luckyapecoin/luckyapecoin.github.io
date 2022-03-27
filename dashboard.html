@@ -563,6 +563,9 @@ console.log(timeSince(d));
 	
 	contract.methods.lottoTotalAllLottoTokensSent().call().then(function(data){
 		let a = parseInt(data/1000000000);
+		/*
+		toLocaleString("en-US", {minimumFractionDigits:"2"});
+		*/
 	document.getElementById("totalAllLottoTokensSent").innerHTML = a.toLocaleString()  + " $LAPE";
 	});
 	
@@ -574,9 +577,9 @@ console.log(timeSince(d));
 			contract.methods.lottoPotLottoHistory(0,0,1,0).call().then(function(data){
 				let a = lastPotLottoDetails[0] * 1000;
 				let b = parseInt(lastPotLottoDetails[2]/1000000000);
-	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = lastPotLottoDetails[0] * 1000;
-	document.getElementById("recentPotLottoPayoutTokens").innerHTML = b.toLocaleString() + " $LAPE";
-			console.log("lastPotLottoDetails");
+	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = a;
+	document.getElementById("recentPotLottoPayoutTokens").innerHTML = b;
+			console.log(data);
 	});
 			
 			/*
