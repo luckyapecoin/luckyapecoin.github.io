@@ -47,7 +47,6 @@ function setDecimals( number, decimals ){
     return numberAbs + numberDecimals;
 }
 
- /*
 (async () => {
     const tokenAddres = '0x35b0294500bba6b817332b8314091ca7bbb845fd'; // change this with the token addres that you want to know the 
     let bnbPrice = await calcBNBPrice() // query pancakeswap to get the price of BNB in USDT
@@ -62,18 +61,5 @@ function setDecimals( number, decimals ){
   console.log(e.message);  
 }
 
-*/
-  
-  async function run() {
-    const tokenAddres = '0x35b0294500bba6b817332b8314091ca7bbb845fd'; // change this with the token addres that you want to know the 
-    let bnbPrice = await calcBNBPrice() // query pancakeswap to get the price of BNB in USDT
-    console.log(`CURRENT BNB PRICE: ${bnbPrice}`);
-    // Them amount of tokens to sell. adjust this value based on you need, you can encounter errors with high supply tokens when this value is 1.
-    let tokens_to_sell = 1; 
-    let priceInBnb = await calcSell(tokens_to_sell, tokenAddres)/tokens_to_sell; // calculate TOKEN price in BNB
-    console.log( 'SHIT_TOKEN VALUE IN BNB : ' + priceInBnb + ' | Just convert it to USD ' );
-      console.log(`SHIT_TOKEN VALUE IN USD: ${priceInBnb*bnbPrice}`); // convert the token price from BNB to USD based on the retrived BNB value
-  }
-  
-  run();
+
 
