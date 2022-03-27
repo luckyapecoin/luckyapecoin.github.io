@@ -31,13 +31,7 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-<script>
-    $(document).ready(function(){
-  $("#txLottoButton").click(function(){
-    $("#txLottoHistoryWrapper").hide();
-  });
-});
-</script>
+
 <style type="text/css">
    
     .lotto-history-wrapper{
@@ -500,6 +494,23 @@ font-size:5em;
 		</div>
 	</footer>
 	<script src="js/3eca14a7769ee6cca99b4ee396e5c55f.js"></script>
+	<script>
+    $(document).ready(function(){
+  $("#txLottoButton").click(function(){
+	$("#txLottoButton").addClass("selected");
+    $("#txLottoHistoryWrapper").addClass("show");
+	$("#potLottoButton").removeClass("selected");
+    $("#potLottoHistoryWrapper").removeClass("show");  
+  });
+	    
+	    $("#potLottoButton").click(function(){
+	$("#potLottoButton").addClass("selected");
+    $("#potLottoHistoryWrapper").addClass("show");
+	$("#ptxLottoButton").removeClass("selected");
+    $("#txLottoHistoryWrapper").removeClass("show");  
+  });
+});
+</script>
 	<script>
 function timeSince(timeStamp) {
     var now = new Date(),
