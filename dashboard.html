@@ -594,7 +594,8 @@ console.log(timeSince(d));
 	});
 			
 			contract.methods.lottoTransactionLottoHistory(0,0,10,0).call().then(function(data){
-			alert(data);
+			console.log(data[0][0][1]);
+				console.log(data);
 	});
 			
 			/*
