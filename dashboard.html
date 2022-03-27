@@ -530,23 +530,23 @@ function timeSince(timeStamp) {
 	    return a + (a > 1 ? ' secs ago' : ' sec ago');
     }
     if(secondsPast < 3600){
-	    let a = parseInt(secondsPast);
-        return a + ' mins ago';
+	    let a = parseInt(secondsPast/60);
+        return a + (a > 1 ? ' mins ago' : ' min ago');
     }
     if(secondsPast <= 86400){
-	    let a = parseInt(secondsPast);
+	    let a = parseInt(secondsPast/3600);
         return a + (a > 1 ? ' hours ago' : ' hour ago');
     }
     if(secondsPast <= 2628000){
-	    let a = parseInt(secondsPast);
+	    let a = parseInt(secondsPast/86400);
         return a + (a > 1 ? ' days ago' : ' day ago');
     }
     if(secondsPast <= 31536000){
-	    let a = parseInt(secondsPast);
+	    let a = parseInt(secondsPast/2628000);
         return a + (a > 1 ? ' months ago' : ' month ago');
     }
     if(secondsPast > 31536000){
-	    let a = parseInt(secondsPast);
+	    let a = parseInt(secondsPast/31536000);
         return a + (a > 1 ? ' years ago' : ' year ago');
     }
 }
