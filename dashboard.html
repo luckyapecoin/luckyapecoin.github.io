@@ -344,14 +344,15 @@ font-size:5em;
 
 
 <div class="col-12 col-lg-4 py-2">
-    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Lottery Tokens Distributed</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="totalAllLottoTokensSent">123,456,789 $LAPE</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="totalAllLottoTokensSentInUSD">2,324.00 USD</span>
+    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Lottery Tokens Distributed</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="totalAllLottoTokensSent">0 $LAPE</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="totalAllLottoTokensSentInUSD">0.00 USD</span>
 </div>   
 </div>
 <div class="col-12 col-lg-4 py-2">
-    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Current Pot Lotto</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="currentPotLottoTokens">123,456,789 $LAPE</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="currentPotLottoTokensInUSD">2,324.00 USD</span>
+    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Current Pot Lotto</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="currentPotLottoTokens">0 $LAPE</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="currentPotLottoTokensInUSD">0.00 USD</span>
 </div>   
 </div><div class="col-12 col-lg-4 py-2">
-    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Recent Pot Lotto Payout</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="recentPotLottoPayoutDateTime">6 mins ago</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="recentPotLottoPayoutTokens">10,000,000 $LAPE
+    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4">
+	    <span style="color:rgb(251, 253, 0);">Recent Pot Lotto Payout</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="recentPotLottoPayoutDateTime">0 sec ago</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="recentPotLottoPayoutTokens">0 $LAPE
 </span>
 </div>   
 </div>
@@ -558,11 +559,13 @@ console.log(timeSince(d))
 	var contract = new web3.eth.Contract(ABI,CONTRACT_ADDRESS);
 	
 	contract.methods.lottoTotalAllLottoTokensSent().call().then(function(lottoTotalAllLottoTokensSent){
-	document.getElementById("totalAllLottoTokensSent").innerHTML = parseInt(lottoTotalAllLottoTokensSent/1000000000).toLocaleString()  + " $LAPE";
+	document.getElementById("totalAllLottoTokensSent").innerHTML = parseInt(lottoTotalAllLottoTokensSent/1000000000)  + " $LAPE";
 	});
+			
 	contract.methods.lottoCurrentPotLottoTokens().call().then(function(lottoCurrentPotLottoTokens){
-	document.getElementById("currentPotLottoTokens").innerHTML = parseInt(lottoCurrentPotLottoTokens/1000000000).toLocaleString()  + " $LAPE";
+	document.getElementById("currentPotLottoTokens").innerHTML = parseInt(lottoCurrentPotLottoTokens/1000000000)  + " $LAPE";
 	});
+			
 		contract.methods.lottoPotLottoHistory(0,0,1,0).call().then(function(lastPotLottoDetails){
 	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = lastPotLottoDetails[0] * 1000;
 	document.getElementById("recentPotLottoPayoutTokens").innerHTML = parseInt(lastPotLottoDetails[2]/1000000000)  + " $LAPE";
