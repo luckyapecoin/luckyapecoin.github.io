@@ -510,7 +510,7 @@ font-size:5em;
 	<script>
     $(document).ready(function(){
 
-document.getElementById('TXTimestamps').innerHTML = 'Date: ' + moment.utc(now.getTime()).format('YYYY/MM/DD hh:mm:ss A') + ' UTC';
+document.getElementById('TXTimestamps').innerHTML = 'Date: ' + now.getTime();
 
   $("#txLottoButton").click(function(){
 	$("#txLottoButton").addClass("selected");
