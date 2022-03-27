@@ -591,6 +591,15 @@ console.log(timeSince(d));
 			
 			contract.methods.lottoTransactionLottoHistory(0,0,10,0).call().then(function(data){
 			console.log(data[0][0]);
+				
+				for(let x = 0; x < data.length; x++){
+					if(data[x][0] == 0)
+						break;
+					document.getElementById('mTXLottoHistoryTable').innerHTML = '<tr><td class="py-3"><span class="d-block" style="font-weight:400;">Date</span><span class="d-block" style="font-weight:600;">0000-00-00 00:00:00 AM</span><span class="d-block mt-2" style="font-weight:400;">Wallet Address</span><span class="d-block" style="font-weight:600;">0x00000000...00000000<a class="ms-2" href="#"><button class="track-button">Track</button></a></span><span class="d-block mt-2" style="font-weight:400;">Tokens Received</span><span class="d-block" style="font-weight:600;">0 $LAPE</span></td></tr>';
+					document.getElementById('dTXLottoHistoryTable').innerHTML = '<tr style="font-weight:600;"><td class="py-3">0000-00-00 00:00:00 AM</td><td class="py-3">0x00000000...00000000<a class="ms-2" href="#"><button class="track-button">Track</button></a></td><td class="py-3">0 $LAPE</td></tr>';
+					console.log('Time: ' + data[x][0] + ' Address: ' + data[x][1] + ' Amount: ' + data[x][2]);
+				}
+				
 				console.log(data);
 	});
 			
