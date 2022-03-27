@@ -565,11 +565,20 @@ console.log(timeSince(d))
 	document.getElementById("totalAllLottoTokensSent").innerHTML = parseInt(lottoTotalAllLottoTokensSent/1000000000)  + " $LAPE";
 	});
 	contract.methods.lottoCurrentPotLottoTokens().call().then(function(lottoCurrentPotLottoTokens){
-	document.getElementById("currentPotLottoTokens").innerHTML = parseInt(currentPotLottoTokens/1000000000)  + " $LAPE";
+	document.getElementById("currentPotLottoTokens").innerHTML = parseInt(lottoCurrentPotLottoTokens/1000000000)  + " $LAPE";
 	});
 		contract.methods.lottoPotLottoHistory(0,0,1,0).call().then(function(lastPotLottoDetails){
-	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = " $LAPE";
+	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = timeSince(lastPotLottoDetails[0] * 1000);
+			document.getElementById("recentPotLottoPayoutTokens").innerHTML = parseInt(lastPotLottoDetails[2]/1000000000)  + " $LAPE";
 			console.log(lastPotLottoDetails);
+	});
+			
+			contract.methods.lottoTransactionLottoHistory(0,0,10,0).call().then(function(transactionLottoResults){
+			console.log(transactionLottoResults);
+	});
+			
+			contract.methods.lottoPotLottoHistory(0,0,10,0).call().then(function(potLottoResults){
+			console.log(potLottoResults);
 	});
 			
 		}
