@@ -589,7 +589,7 @@ console.log(timeSince(d));
 			contract.methods.lottoPotLottoHistory(0,0,1,0).call().then(function(data){
 				let a = data[0][0] * 1000;
 				let b = parseInt(data[0][2]/1000000000);
-	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = timeSince(a);
+	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = timeSince(date(a));
 	document.getElementById("recentPotLottoPayoutTokens").innerHTML = b.toLocaleString()  + " $LAPE";
 	});
 			
