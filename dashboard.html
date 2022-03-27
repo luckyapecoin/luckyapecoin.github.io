@@ -30,7 +30,50 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+
 <style type="text/css">
+   
+    .lotto-history-wrapper{
+        opacity:0;    
+    }
+    
+    .show{
+         opacity:1;   
+    }
+    
+    .track-button{
+         color:#FBFD00;
+        font-weight:600;
+        font-size:0.75em;
+        border:1px solid #FBFD00;
+        border-radius:8px;
+        padding:4px 8px;
+        background:#222222;
+    }
+    
+    .track-button:hover,.track-button:focus{
+         color:#222222;
+        border:1px solid #FBFD00;
+        background:#FBFD00;
+    }
+    
+   .lotto-type-wrapper .lotto-type-button{
+    color: #FBFD00;
+    padding: 6px 12px;
+    border-radius: 0px 12px 12px 0px;
+    border: 2px solid #222222;
+    background: #222222;
+    font-weight: 700;    
+    }
+    
+    .lotto-type-wrapper .selected{
+    padding: 6px 12px;
+    border-radius: 12px 0px 0px 12px;
+    border: 2px solid #222222;
+    background: #FBFD00;
+    font-weight: 700;
+    color:#222222;
+    }
     
     .table-striped>tbody>tr:nth-of-type(odd) {
     --bs-table-accent-bg: var(--bs-table-striped-bg);
@@ -291,200 +334,137 @@ font-size:5em;
 
 <div class="row">
 
-<div class="col-12 col-lg-4 py-2">
-    <div class="dashboard-card-wrapper d-flex flex-column justify-content-center align-items-center p-4 h-100" style="background:#222222;border-radius:12px;"><span style="color:rgb(251, 253, 0);">Lottery Tokens Distributed</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700">123,456,789 $LAPE</span>
-<span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;">2,324.00 USD</span></div>   
-</div>
 
 <div class="col-12 col-lg-4 py-2">
-    <div class="dashboard-card-wrapper d-flex flex-column justify-content-center align-items-center p-4 h-100" style="background:#222222;border-radius:12px;"><span style="color:rgb(251, 253, 0);">Current Pot Lotto</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700">123,456,789 $LAPE</span>
-<span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;">2,324.00 USD</span></div>   
+    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Lottery Tokens Distributed</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="totalAllLottoTokensSent">123,456,789 $LAPE</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="totalAllLottoTokensSentInUSD">2,324.00 USD</span>
+</div>   
+</div>
+<div class="col-12 col-lg-4 py-2">
+    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Current Pot Lotto</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="currentPotLottoTokens">123,456,789 $LAPE</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="currentPotLottoTokensInUSD">2,324.00 USD</span>
+</div>   
 </div><div class="col-12 col-lg-4 py-2">
-    <div class="dashboard-card-wrapper d-flex flex-column justify-content-center align-items-center p-4 h-100" style="background:#222222;border-radius:12px;"><span style="color:rgb(251, 253, 0);">Recent Pot Lotto Payout</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700">6 mins ago</span>
-<span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;">10,000,000 $LAPE</span></div>   
+    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Recent Pot Lotto Payout</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="recentPotLottoPayoutDateTime">6 mins ago</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="recentPotLottoPayoutTokens">10,000,000 $LAPE
+</span>
+</div>   
 </div>
-</div><div class="row mt-3">
-    <div class="d-flex flex-row align-items-center justify-content-between"><span style="font-weight:700;font-size:2em;">History</span>
 
-<div><button style="padding:6px 12px;border-radius:12px 0px 0px 12px;border:2px solid #222222;background:#FBFD00;font-weight:700;">TX Lotto</button><button style="color:#FBFD00;padding:6px 12px;border-radius:0px 12px 12px 0px;border:2px solid #222222;background:#222222;font-weight:700;">Pot Lotto</button></div></div>
+
+</div><div class="row mt-3">
+    <div class="d-flex flex-row align-items-center justify-content-between"><span style="font-weight:700;font-size:2em;letter-spacing:-2px;">History</span>
+
+<div class="lotto-type-wrapper"><button id="txLottoButton" class="lotto-type-button selected">TX Lotto</button><button id="potLottoButton" class="lotto-type-button">Pot Lotto</button></div></div>
 <div class="col-12 py-2">
-	<table class="table table-striped tokenomics-info-table d-none d-xl-table">
+    
+    
+    <div id="txLottoHistoryWrapper" class="lotto-history-wrapper show">
+    
+    <table class="table table-striped tokenomics-info-table d-none d-xl-table">
     		<thead><tr style="font-weight:500">
                 		<th class="py-3" style="font-size:1em;font-weight:400;">Date</th>
 <th class="py-3" style="font-size:1em;font-weight:400;">Wallet Address</th>
 				<th class="py-3" style="font-size:1em;font-weight:400;">Tokens Received</th>
 			</tr></thead>
 
-<tbody id="desktop-transaction-lotto-history-table">
+<tbody id="dTXLottoHistoryTable">
 			
 			
 <tr style="font-weight:600;">
-				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c <a href="#">Track</a></td>
+				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c<a class="ms-2" href="#"><button class="track-button">Track</button></a></td>
 				<td class="py-3">123,456,789 $LAPE</td>
 			</tr>
-<tr style="font-weight:600;">
-				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c <a href="#">Track</a></td>
-				<td class="py-3">123,456,789 $LAPE</td>
-			</tr>
-<tr style="font-weight:600;">
-				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c <a href="#">Track</a></td>
-				<td class="py-3">123,456,789 $LAPE</td>
-			</tr>
-<tr style="font-weight:600;">
-				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c <a href="#">Track</a></td>
-				<td class="py-3">123,456,789 $LAPE</td>
-			</tr>
-<tr style="font-weight:600;">
-				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c <a href="#">Track</a></td>
-				<td class="py-3">123,456,789 $LAPE</td>
-			</tr>
-<tr style="font-weight:600;">
-				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c <a href="#">Track</a></td>
-				<td class="py-3">123,456,789 $LAPE</td>
-			</tr>
-<tr style="font-weight:600;">
-				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c <a href="#">Track</a></td>
-				<td class="py-3">123,456,789 $LAPE</td>
-			</tr>
-<tr style="font-weight:600;">
-				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c <a href="#">Track</a></td>
-				<td class="py-3">123,456,789 $LAPE</td>
-			</tr>
-<tr style="font-weight:600;">
-				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c <a href="#">Track</a></td>
-				<td class="py-3">123,456,789 $LAPE</td>
-			</tr><tr style="font-weight:600;">
-				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c <a href="#">Track</a></td>
-				<td class="py-3">123,456,789 $LAPE</td>
-			</tr>
+
+
+
+
+
+
+
+
 		</tbody>
    	</table>
 
 <table class="table table-striped tokenomics-info-table d-xl-none">
-                                        <tbody id="mobile-transaction-lotto-history-table">
+                                        <tbody id="mTXLottoHistoryTable">
 					
 <tr>
 						<td class="py-3">
     <span class="d-block" style="font-weight:400;">Date</span>
     <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
                                                         <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
-                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c</span>
+                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c<a class="ms-2" href="#"><button class="track-button">Track</button></a></span>
                                                         <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
                                                         <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
                                                 </td>
                                     
 					</tr>
-<tr>
-						<td class="py-3">
-    <span class="d-block" style="font-weight:400;">Date</span>
-    <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
-                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
-                                                        <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
-                                                </td>
-                                    
-					</tr>
-<tr>
-						<td class="py-3">
-    <span class="d-block" style="font-weight:400;">Date</span>
-    <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
-                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
-                                                        <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
-                                                </td>
-                                    
-					</tr>
-<tr>
-						<td class="py-3">
-    <span class="d-block" style="font-weight:400;">Date</span>
-    <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
-                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
-                                                        <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
-                                                </td>
-                                    
-					</tr>
-<tr>
-						<td class="py-3">
-    <span class="d-block" style="font-weight:400;">Date</span>
-    <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
-                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
-                                                        <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
-                                                </td>
-                                    
-					</tr>
-<tr>
-						<td class="py-3">
-    <span class="d-block" style="font-weight:400;">Date</span>
-    <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
-                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
-                                                        <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
-                                                </td>
-                                    
-					</tr>
-<tr>
-						<td class="py-3">
-    <span class="d-block" style="font-weight:400;">Date</span>
-    <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
-                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
-                                                        <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
-                                                </td>
-                                    
-					</tr>
-<tr>
-						<td class="py-3">
-    <span class="d-block" style="font-weight:400;">Date</span>
-    <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
-                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
-                                                        <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
-                                                </td>
-                                    
-					</tr>
-<tr>
-						<td class="py-3">
-    <span class="d-block" style="font-weight:400;">Date</span>
-    <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
-                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
-                                                        <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
-                                                </td>
-                                    
-					</tr>
-<tr>
-						<td class="py-3">
-    <span class="d-block" style="font-weight:400;">Date</span>
-    <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
-                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
-                                                        <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
-                                                </td>
-                                    
-					</tr><tr>
-						<td class="py-3">
-    <span class="d-block" style="font-weight:400;">Date</span>
-    <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
-                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c</span>
-                                                        <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
-                                                        <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
-                                                </td>
-                                    
-					</tr>
+
+
+
+
+
+
+
+
+
                                         
-				</tbody></table>   
+				</tbody></table>
+    </div>
+
+<div id="potLottoHistoryWrapper" class="lotto-history-wrapper">
+    
+    <table class="table table-striped tokenomics-info-table d-none d-xl-table">
+    		<thead><tr style="font-weight:500">
+                		<th class="py-3" style="font-size:1em;font-weight:400;">Date</th>
+<th class="py-3" style="font-size:1em;font-weight:400;">Wallet Address</th>
+				<th class="py-3" style="font-size:1em;font-weight:400;">Tokens Received</th>
+			</tr></thead>
+
+<tbody id="dPotLottoHistoryTable">
+			
+			
+<tr style="font-weight:600;">
+				<td class="py-3">2022-03-26 09:30:30 AM</td><td class="py-3">0x3fe6e042...b4e9e63c<a class="ms-2" href="#"><button class="track-button">Track</button></a></td>
+				<td class="py-3">123,456,789 $LAPE</td>
+			</tr>
+
+
+
+
+
+
+
+
+		</tbody>
+   	</table>
+
+<table class="table table-striped tokenomics-info-table d-xl-none">
+                                        <tbody id="mPotLottoHistoryTable">
+					
+<tr>
+						<td class="py-3">
+    <span class="d-block" style="font-weight:400;">Date</span>
+    <span class="d-block" style="font-weight:600;">2022-03-26 09:30:30 AM</span>
+                                                        <span class="d-block mt-2" style="font-weight:400;">Wallet Address</span>
+                                                        <span class="d-block" style="font-weight:600;">0x3fe6e042...b4e9e63c<a class="ms-2" href="#"><button class="track-button">Track</button></a></span>
+                                                        <span class="d-block mt-2" style="font-weight:400;">Tokens Received</span>
+                                                        <span class="d-block" style="font-weight:600;">123,456,789 $LAPE</span>
+                                                </td>
+                                    
+					</tr>
+
+
+
+
+
+
+
+
+
+                                        
+				</tbody></table>
+    </div>
+    
+	   
 </div>
 
 
@@ -514,13 +494,40 @@ font-size:5em;
 	</footer>
 	<script src="js/3eca14a7769ee6cca99b4ee396e5c55f.js"></script>
 	<script>
+function timeSince(timeStamp) {
+    var now = new Date(),
+        secondsPast = (now.getTime() - timeStamp.getTime() ) / 1000;
+    if(secondsPast < 60){
+        return parseInt(secondsPast) + 's';
+    }
+    if(secondsPast < 3600){
+        return parseInt(secondsPast/60) + 'min';
+    }
+    if(secondsPast <= 86400){
+        return parseInt(secondsPast/3600) + 'h';
+    }
+    if(secondsPast <= 2628000){
+        return parseInt(secondsPast/86400) + 'd';
+    }
+    if(secondsPast <= 31536000){
+        return parseInt(secondsPast/2628000) + 'mo';
+    }
+    if(secondsPast > 31536000){
+        return parseInt(secondsPast/31536000) + 'y';
+    }
+}
+
+d = new Date(1648369463000);
+console.log(timeSince(d))
+	</script>
+	<script>
 		try{
 			const NODE_URL = "https://speedy-nodes-nyc.moralis.io/0a68c0a216fe6c13918b4390/bsc/testnet";
 			let web3 = new Web3(new Web3.providers.HttpProvider(NODE_URL));
 	
 	web3.eth.getBlockNumber()
 	.then(function(blockNumber){
-		document.getElementById("blockNumber").innerHTML = "Block Number: " + blockNumber;
+		console.log(blockNumber);
 	});
 		var ABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"tokenAmount","type":"uint256"}],"name":"RewardLiquidityProviders","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"tokensSwapped","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"ethReceived","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"tokensIntoLiqudity","type":"uint256"}],"name":"SwapAndLiquify","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"amountIn","type":"uint256"},{"indexed":false,"internalType":"address[]","name":"path","type":"address[]"}],"name":"SwapETHForTokens","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"amountIn","type":"uint256"},{"indexed":false,"internalType":"address[]","name":"path","type":"address[]"}],"name":"SwapTokensForETH","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"_addressListExists","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"_addressLists","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_buybackAmountLimit","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_buybackDivisor","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_buybackEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_contractTokensToSell","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_lottoRecipient","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_marketingAddress","outputs":[{"internalType":"address payable","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_maxTxAmount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_maxWalletAmount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_minTokensRequiredForLotto","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_prepareFairlaunch","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_sellContractTokensEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_startFairlaunch","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"_transactionFees","outputs":[{"internalType":"uint256","name":"buyReflectionFee","type":"uint256"},{"internalType":"uint256","name":"buyBuybackFee","type":"uint256"},{"internalType":"uint256","name":"buyMarketingFee","type":"uint256"},{"internalType":"uint256","name":"buyLottoFee","type":"uint256"},{"internalType":"uint256","name":"totalBuyBuybackMarketingFee","type":"uint256"},{"internalType":"uint256","name":"sellReflectionFee","type":"uint256"},{"internalType":"uint256","name":"sellBuybackFee","type":"uint256"},{"internalType":"uint256","name":"sellMarketingFee","type":"uint256"},{"internalType":"uint256","name":"sellLottoFee","type":"uint256"},{"internalType":"uint256","name":"totalSellBuybackMarketingFee","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"deadAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"tAmount","type":"uint256"}],"name":"deliver","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"excludeFromAllowed","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"excludeFromFee","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"excludeFromReward","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"excludeFromTaxable","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"getTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getUnlockTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"includeInAllowed","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"includeInFee","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"includeInReward","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"includeInTaxable","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"isAllowed","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"isExcludedFromFee","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"isExcludedFromReward","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"isTaxable","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"time","type":"uint256"}],"name":"lock","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"manualBuybackAndBurnTokens","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"noOfAddress","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"prepareFairlaunch","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"tAmount","type":"uint256"},{"internalType":"bool","name":"deductTransferFee","type":"bool"}],"name":"reflectionFromToken","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address payable","name":"marketingAddress","type":"address"}],"name":"setMarketingAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"minTokensRequiredForLotto","type":"uint256"}],"name":"setMinTokensRequiredForLotto","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"showRandom","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"startFairlaunch","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"rAmount","type":"uint256"}],"name":"tokenFromReflection","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalFees","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"uniswapV2Pair","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"uniswapV2Router","outputs":[{"internalType":"contract IUniswapV2Router02","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"unlock","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address payable","name":"recipient","type":"address"}],"name":"unstuckBalance","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"buybackAmountLimit","type":"uint256"}],"name":"updateBuybackAmountLimit","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"buybackDivisor","type":"uint256"}],"name":"updateBuybackDivisor","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_enabled","type":"bool"}],"name":"updateBuybackEnabled","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"contractTokensToSell","type":"uint256"}],"name":"updateContractTokensToSell","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"buyReflectionFee","type":"uint256"},{"internalType":"uint256","name":"buyBuybackFee","type":"uint256"},{"internalType":"uint256","name":"buyMarketingFee","type":"uint256"},{"internalType":"uint256","name":"buyLottoFee","type":"uint256"},{"internalType":"uint256","name":"sellReflectionFee","type":"uint256"},{"internalType":"uint256","name":"sellBuybackFee","type":"uint256"},{"internalType":"uint256","name":"sellMarketingFee","type":"uint256"},{"internalType":"uint256","name":"sellLottoFee","type":"uint256"}],"name":"updateFees","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"maxTxAmount","type":"uint256"}],"name":"updateMaxTxAmount","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_enabled","type":"bool"}],"name":"updateSellContractTokensEnabled","outputs":[],"stateMutability":"nonpayable","type":"function"},{"stateMutability":"payable","type":"receive"}];
 	var CONTRACT_ADDRESS = '0xD546364a0e60aaBAeEB05931AdFbed80A7812F8E';
@@ -538,6 +545,23 @@ font-size:5em;
 	
 	
 </script>
+<script>
+    $(document).ready(function() {
+         $("#txLottoButton").on('click', function(){
+          $("#txLottoButton").addClass("selected");
+           $("#txLottoHistoryWrapper").addClass("show");  
+          $("#potLottoButton").removeClass("selected");
+             $("#potLottoHistoryWrapper").removeClass("show"); 
+});
+         $("#potLottoButton").on('click', function(){
+          $("#potLottoButton").addClass("selected");
+             $("#potLottoHistoryWrapper").addClass("show"); 
+          $("#txLottoButton").removeClass("selected");
+             $("#txtLottoHistoryWrapper").removeClass("show");
+});
+    });
+</script>
+
 <script src="js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
  <script>
@@ -565,6 +589,7 @@ font-size:5em;
 
 });
 		</script>
+
 
 
 
