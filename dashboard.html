@@ -524,12 +524,11 @@ font-size:5em;
 });
 </script>
 	<script>
+		alert(moment(now.getTime()).format('YYYY/MM/DD hh:mm:ss A'));
+		
 function timeSince(timeStamp) {
     var now = new Date();
-	var utc_timestamp = Date.UTC(now.getFullYear(),now.getMonth(), now.getDate() , 
-      now.getHours(), now.getMinutes(), now.getSeconds(), now.getMilliseconds());
-	
-        secondsPast = (utc_timestamp - timeStamp.getTime() ) / 1000;
+	 secondsPast = (now.getTime() - timeStamp.getTime() ) / 1000;
     if(secondsPast < 60){
 	    let a = parseInt(secondsPast);
 	    return a + (a > 1 ? ' secs ago' : ' sec ago');
