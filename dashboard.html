@@ -340,6 +340,7 @@ font-size:5em;
 
 
 <div class="container">
+<p id="timeNow"></p>
 <p id="TXTimestamps"></p>
 
 <div class="row">
@@ -524,8 +525,8 @@ font-size:5em;
 });
 </script>
 	<script>
-		alert(moment(now.getTime()).format('YYYY/MM/DD hh:mm:ss A'));
 		
+		document.getElementById('timeNow').innerHTML = 'Date: ' + moment(now.getTime()).format('YYYY/MM/DD hh:mm:ss A');
 function timeSince(timeStamp) {
     var now = new Date();
 	 secondsPast = (now.getTime() - timeStamp.getTime() ) / 1000;
@@ -608,6 +609,7 @@ document.getElementById('TXTimestamps').innerHTML = document.getElementById('TXT
 					b = data[x][1];
 					c = parseInt(data[x][2]/1000000000);
 					
+
 					document.getElementById('mTXLottoHistoryTable').innerHTML =  document.getElementById('mTXLottoHistoryTable').innerHTML + '<tr><td class="py-3"><span class="d-block" style="font-weight:400;">Date</span><span class="d-block" style="font-weight:600;">' + a + '</span><span class="d-block mt-2" style="font-weight:400;">Wallet Address</span><span class="d-block" style="font-weight:600;">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" href="https://https://testnet.bscscan.com/address/' + b + '"><button class="track-button">Track</button></a></span><span class="d-block mt-2" style="font-weight:400;">Tokens Received</span><span class="d-block" style="font-weight:600;">' + c.toLocaleString() + ' $LAPE</span></td></tr>';
 					document.getElementById('dTXLottoHistoryTable').innerHTML = document.getElementById('dTXLottoHistoryTable').innerHTML + '<tr style="font-weight:600;"><td class="py-3">' + a + '</td><td class="py-3">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" href="https://https://testnet.bscscan.com/address/' + b + '"><button class="track-button">Track</button></a></td><td class="py-3">' + c.toLocaleString() + ' $LAPE</td></tr>';
 					console.log('Time: ' + data[x][0] + ' Address: ' + data[x][1] + ' Amount: ' + data[x][2]);
