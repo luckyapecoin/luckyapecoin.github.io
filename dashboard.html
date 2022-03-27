@@ -526,22 +526,28 @@ function timeSince(timeStamp) {
     var now = new Date(),
         secondsPast = (now.getTime() - timeStamp.getTime() ) / 1000;
     if(secondsPast < 60){
-        return parseInt(secondsPast) + 's';
+	    let a = parseInt(secondsPast);
+	    return a + (a > 1 ? ' secs ago' : ' sec ago');
     }
     if(secondsPast < 3600){
-        return parseInt(secondsPast/60) + 'min';
+	    let a = parseInt(secondsPast);
+        return a + ' mins ago';
     }
     if(secondsPast <= 86400){
-        return parseInt(secondsPast/3600) + 'h';
+	    let a = parseInt(secondsPast);
+        return a + (a > 1 ? ' hours ago' : ' hour ago');
     }
     if(secondsPast <= 2628000){
-        return parseInt(secondsPast/86400) + 'd';
+	    let a = parseInt(secondsPast);
+        return a + (a > 1 ? ' days ago' : ' day ago');
     }
     if(secondsPast <= 31536000){
-        return parseInt(secondsPast/2628000) + 'mo';
+	    let a = parseInt(secondsPast);
+        return a + (a > 1 ? ' months ago' : ' month ago');
     }
     if(secondsPast > 31536000){
-        return parseInt(secondsPast/31536000) + 'y';
+	    let a = parseInt(secondsPast);
+        return a + (a > 1 ? ' years ago' : ' year ago');
     }
 }
 
@@ -571,20 +577,21 @@ console.log(timeSince(d));
 		toLocaleString("en-US", {minimumFractionDigits:"2"});
 		*/
 	document.getElementById("totalAllLottoTokensSent").innerHTML = a.toLocaleString()  + " $LAPE";
+	document.getElementById("totalAllLottoTokensSentInUSD").innerHTML = a.toLocaleString("en-US", {minimumFractionDigits:"2"})  + " USD";
 	});
 	
 			contract.methods.lottoCurrentPotLottoTokens().call().then(function(data){
 				let a = parseInt(data/1000000000);
 	document.getElementById("currentPotLottoTokens").innerHTML = a.toLocaleString()  + " $LAPE";
+				document.getElementById("currentPotLottoTokensInUSD").innerHTML = a.toLocaleString("en-US", {minimumFractionDigits:"2"})  + " $LAPE";
 	});
 			
 			contract.methods.lottoPotLottoHistory(0,0,1,0).call().then(function(data){
 				let a = data[0][0] * 1000;
 				let b = parseInt(data[0][2]/1000000000);
-	//document.getElementById("recentPotLottoPayoutDateTime").innerHTML = a;
-	//document.getElementById("recentPotLottoPayoutTokens").innerHTML = b;
+	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = a;
+	document.getElementById("recentPotLottoPayoutTokens").innerHTML = b.toLocaleString()  + " $LAPE";
 				
-				alert(a + " " + b);
 			//console.log(data);
 	});
 			
