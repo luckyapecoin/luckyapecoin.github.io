@@ -562,13 +562,21 @@ console.log(timeSince(d));
 	var contract = new web3.eth.Contract(ABI,CONTRACT_ADDRESS);
 	
 	contract.methods.lottoTotalAllLottoTokensSent().call().then(function(data){
-		let x = parseInt(data/1000000000);
-	document.getElementById("totalAllLottoTokensSent").innerHTML = x.toLocaleString()  + " $LAPE";
+		let a = parseInt(data/1000000000);
+	document.getElementById("totalAllLottoTokensSent").innerHTML = a.toLocaleString()  + " $LAPE";
 	});
 	
 			contract.methods.lottoCurrentPotLottoTokens().call().then(function(data){
-				let x = parseInt(data/1000000000);
-	document.getElementById("currentPotLottoTokens").innerHTML = x.toLocaleString()  + " $LAPE";
+				let a = parseInt(data/1000000000);
+	document.getElementById("currentPotLottoTokens").innerHTML = a.toLocaleString()  + " $LAPE";
+	});
+			
+			contract.methods.lottoPotLottoHistory(0,0,1,0).call().then(function(data){
+				let a = lastPotLottoDetails[0] * 1000;
+				let b = parseInt(lastPotLottoDetails[2]/1000000000);
+	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = lastPotLottoDetails[0] * 1000;
+	document.getElementById("recentPotLottoPayoutTokens").innerHTML = b.toLocaleString() + " $LAPE";
+			console.log("lastPotLottoDetails);
 	});
 			
 			/*
