@@ -39,7 +39,7 @@ async function calcBNBPrice(){
 }
 function setDecimals( number, decimals ){
     number = number.toString();
-    let numberAbs = number.split('.')[0]
+    let numberAbs = number.split('.')[0];
     let numberDecimals = number.split('.')[1] ? number.split('.')[1] : '';
     while( numberDecimals.length < decimals ){
         numberDecimals += "0";
