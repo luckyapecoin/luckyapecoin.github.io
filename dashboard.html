@@ -658,7 +658,7 @@ console.log('TEST DONE PRICE IN BNB ' + priceInBNB + ' PRICE IN USD ' + priceInU
 	
 	contract.methods.lottoTotalAllLottoTokensSent().call().then(function(data){
 		let a = parseInt(data/1000000000);
-		let b = parseFloat(a * priceInUSD);
+		let b = parseFloat(a*priceInUSD);
 		/*
 		toLocaleString("en-US", {minimumFractionDigits:"2"});
 		*/
