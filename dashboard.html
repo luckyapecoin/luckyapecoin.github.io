@@ -650,72 +650,7 @@ async function getPriceInBNBUSD(){
 	
 getPriceInBNBUSD().then(function(){
 console.log('TEST DONE PRICE IN BNB ' + priceInBNB + ' PRICE IN USD ' + priceInUSD);
-});
-  
-}catch(e){
-  console.log(e.message);  
-}
-	</script>
-	
-	<script>
-    $(document).ready(function(){
-
-  $("#txLottoButton").click(function(){
-	$("#txLottoButton").addClass("selected");
-    $("#txLottoHistoryWrapper").addClass("show");
-	$("#potLottoButton").removeClass("selected");
-    $("#potLottoHistoryWrapper").removeClass("show");  
-  });
-	    
-	    $("#potLottoButton").click(function(){
-	$("#potLottoButton").addClass("selected");
-    $("#potLottoHistoryWrapper").addClass("show");
-	$("#txLottoButton").removeClass("selected");
-    $("#txLottoHistoryWrapper").removeClass("show");  
-  });
-});
-</script>
-	<script>
-		
-		
-function timeSince(timeStamp) {
-    var now = new Date();
-	 secondsPast = (now.getTime() - timeStamp.getTime() ) / 1000;
-    if(secondsPast < 60){
-	    let a = parseInt(secondsPast);
-	    //return a + (a > 1 ? ' secs ago' : ' sec ago');
-	    return '1 min ago';
-    }
-    if(secondsPast < 3600){
-	    let a = parseInt(secondsPast/60);
-        return a + (a > 1 ? ' mins ago' : ' min ago');
-    }
-    if(secondsPast <= 86400){
-	    let a = parseInt(secondsPast/3600);
-        return a + (a > 1 ? ' hours ago' : ' hour ago');
-    }
-    if(secondsPast <= 2628000){
-	    let a = parseInt(secondsPast/86400);
-        return a + (a > 1 ? ' days ago' : ' day ago');
-    }
-    if(secondsPast <= 31536000){
-	    let a = parseInt(secondsPast/2628000);
-        return a + (a > 1 ? ' months ago' : ' month ago');
-    }
-    if(secondsPast > 31536000){
-	    let a = parseInt(secondsPast/31536000);
-        return a + (a > 1 ? ' years ago' : ' year ago');
-    }
-}
-
-d = new Date(1648381655000);
-console.log(timeSince(d));
-	</script>
-	
-	<script>
-		
-		
-		try{
+	try{
 			const NODE_URL = "https://speedy-nodes-nyc.moralis.io/0a68c0a216fe6c13918b4390/bsc/testnet";
 			let web3 = new Web3(new Web3.providers.HttpProvider(NODE_URL));
 		
@@ -723,19 +658,21 @@ console.log(timeSince(d));
 	
 	contract.methods.lottoTotalAllLottoTokensSent().call().then(function(data){
 		let a = parseInt(data/1000000000);
-		let b = a * priceInUSD;
+		let b = parseFloat(a * priceInUSD);
 		/*
 		toLocaleString("en-US", {minimumFractionDigits:"2"});
 		*/
 	document.getElementById("totalAllLottoTokensSent").innerHTML = a.toLocaleString()  + " $LAPE";
-	document.getElementById("totalAllLottoTokensSentInUSD").innerHTML = b.toLocaleString("en-US", {minimumFractionDigits:"2"})  + " USD";
+	//document.getElementById("totalAllLottoTokensSentInUSD").innerHTML = b.toLocaleString("en-US", {minimumFractionDigits:"2"})  + " USD";
+		document.getElementById("totalAllLottoTokensSentInUSD").innerHTML = b + " USD";
 	});
 	
 			contract.methods.lottoCurrentPotLottoTokens().call().then(function(data){
 				let a = parseInt(data/1000000000);
-				let b = a * priceInUSD;
+				let b = parseFloat(a*priceInUSD);
 	document.getElementById("currentPotLottoTokens").innerHTML = a.toLocaleString()  + " $LAPE";
-				document.getElementById("currentPotLottoTokensInUSD").innerHTML = b.toLocaleString("en-US", {minimumFractionDigits:"2"})  + " USD";
+				//document.getElementById("currentPotLottoTokensInUSD").innerHTML = b.toLocaleString("en-US", {minimumFractionDigits:"2"})  + " USD";
+				document.getElementById("currentPotLottoTokensInUSD").innerHTML = b + " USD";
 	});
 			
 			contract.methods.lottoPotLottoHistory(0,0,1,0).call().then(function(data){
@@ -814,6 +751,72 @@ console.log(timeSince(d));
 		catch(e){
 			console.log(e.message);	
 		}
+});
+  
+}catch(e){
+  console.log(e.message);  
+}
+	</script>
+	
+	<script>
+    $(document).ready(function(){
+
+  $("#txLottoButton").click(function(){
+	$("#txLottoButton").addClass("selected");
+    $("#txLottoHistoryWrapper").addClass("show");
+	$("#potLottoButton").removeClass("selected");
+    $("#potLottoHistoryWrapper").removeClass("show");  
+  });
+	    
+	    $("#potLottoButton").click(function(){
+	$("#potLottoButton").addClass("selected");
+    $("#potLottoHistoryWrapper").addClass("show");
+	$("#txLottoButton").removeClass("selected");
+    $("#txLottoHistoryWrapper").removeClass("show");  
+  });
+});
+</script>
+	<script>
+		
+		
+function timeSince(timeStamp) {
+    var now = new Date();
+	 secondsPast = (now.getTime() - timeStamp.getTime() ) / 1000;
+    if(secondsPast < 60){
+	    let a = parseInt(secondsPast);
+	    //return a + (a > 1 ? ' secs ago' : ' sec ago');
+	    return '1 min ago';
+    }
+    if(secondsPast < 3600){
+	    let a = parseInt(secondsPast/60);
+        return a + (a > 1 ? ' mins ago' : ' min ago');
+    }
+    if(secondsPast <= 86400){
+	    let a = parseInt(secondsPast/3600);
+        return a + (a > 1 ? ' hours ago' : ' hour ago');
+    }
+    if(secondsPast <= 2628000){
+	    let a = parseInt(secondsPast/86400);
+        return a + (a > 1 ? ' days ago' : ' day ago');
+    }
+    if(secondsPast <= 31536000){
+	    let a = parseInt(secondsPast/2628000);
+        return a + (a > 1 ? ' months ago' : ' month ago');
+    }
+    if(secondsPast > 31536000){
+	    let a = parseInt(secondsPast/31536000);
+        return a + (a > 1 ? ' years ago' : ' year ago');
+    }
+}
+
+d = new Date(1648381655000);
+console.log(timeSince(d));
+	</script>
+	
+	<script>
+		
+		
+		
 	
 	
 </script>
