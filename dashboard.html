@@ -637,11 +637,11 @@ function setDecimals( number, decimals ){
 
 async function getPriceInBNBUSD(){
     // change this with the token addres that you want to know the 
-    let BNBPrice = await calcBNBPrice() // query pancakeswap to get the price of BNB in USDT
+    let BNBPrice = await calcBNBPrice(); // query pancakeswap to get the price of BNB in USDT
     // Them amount of tokens to sell. adjust this value based on you need, you can encounter errors with high supply tokens when this value is 1.
     let tokensToSell = 1; 
     priceInBNB = await calcSell(tokensToSell)/tokensToSell; // calculate TOKEN price in BNB
-    priceInUSD = priceInBnb*BNBPrice;
+    priceInUSD = priceInBnb * BNBPrice;
     console.log( 'LAPE VALUE IN BNB : ' + priceInBNB + ' | Just convert it to USD ' );
     console.log('LAPE VALUE IN USD: ' + priceInUSD ); // convert the token price from BNB to USD based on the retrived BNB value
     //setTimeout(getPriceInBNBUSD(),1000);
