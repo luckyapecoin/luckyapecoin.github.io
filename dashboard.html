@@ -696,8 +696,8 @@ console.log('TEST DONE PRICE IN BNB ' + priceInBNB + ' PRICE IN USD ' + priceInU
 					c = parseInt(data[x][2]/1000000000);
 					
 
-					document.getElementById('mTXLottoHistoryTable').innerHTML =  document.getElementById('mTXLottoHistoryTable').innerHTML + '<tr><td class="py-3"><span class="d-block" style="font-weight:400;">Date</span><span class="d-block" style="font-weight:600;">' + a + ' UTC</span><span class="d-block mt-2" style="font-weight:400;">Wallet Address</span><span class="d-block" style="font-weight:600;">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" href="https://testnet.bscscan.com/token/' + LAPE_CONTRACT_ADDRESS + '?a=' + b + '"><button class="track-button">Track</button></a></span><span class="d-block mt-2" style="font-weight:400;">Tokens Received</span><span class="d-block" style="font-weight:600;">' + c.toLocaleString() + ' $LAPE</span></td></tr>';
-					document.getElementById('dTXLottoHistoryTable').innerHTML = document.getElementById('dTXLottoHistoryTable').innerHTML + '<tr style="font-weight:600;"><td class="py-3">' + a + ' UTC</td><td class="py-3">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" href="https://testnet.bscscan.com/token/' + LAPE_CONTRACT_ADDRESS + '?a=' + b + '"><button class="track-button">Track</button></a></td><td class="py-3">' + c.toLocaleString() + ' $LAPE</td></tr>';
+					document.getElementById('mTXLottoHistoryTable').innerHTML =  document.getElementById('mTXLottoHistoryTable').innerHTML + '<tr><td class="py-3"><span class="d-block" style="font-weight:400;">Date</span><span class="d-block" style="font-weight:600;">' + a + ' UTC</span><span class="d-block mt-2" style="font-weight:400;">Wallet Address</span><span class="d-block" style="font-weight:600;">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" target="_blank" href="https://testnet.bscscan.com/token/' + LAPE_CONTRACT_ADDRESS + '?a=' + b + '"><button class="track-button">Track</button></a></span><span class="d-block mt-2" style="font-weight:400;">Tokens Received</span><span class="d-block" style="font-weight:600;">' + c.toLocaleString() + ' $LAPE</span></td></tr>';
+					document.getElementById('dTXLottoHistoryTable').innerHTML = document.getElementById('dTXLottoHistoryTable').innerHTML + '<tr style="font-weight:600;"><td class="py-3">' + a + ' UTC</td><td class="py-3">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" target="_blank" href="https://testnet.bscscan.com/token/' + LAPE_CONTRACT_ADDRESS + '?a=' + b + '"><button class="track-button">Track</button></a></td><td class="py-3">' + c.toLocaleString() + ' $LAPE</td></tr>';
 					console.log('Time: ' + data[x][0] + ' Address: ' + data[x][1] + ' Amount: ' + data[x][2]);
 				}
 				
@@ -716,35 +716,14 @@ console.log('TEST DONE PRICE IN BNB ' + priceInBNB + ' PRICE IN USD ' + priceInU
 					b = data[x][1];
 					c = parseInt(data[x][2]/1000000000);
 					
-					document.getElementById('mPotLottoHistoryTable').innerHTML =  document.getElementById('mPotLottoHistoryTable').innerHTML + '<tr><td class="py-3"><span class="d-block" style="font-weight:400;">Date</span><span class="d-block" style="font-weight:600;">' + a + ' UTC</span><span class="d-block mt-2" style="font-weight:400;">Wallet Address</span><span class="d-block" style="font-weight:600;">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" href="https://testnet.bscscan.com/token/' + LAPE_CONTRACT_ADDRESS + '?a=' + b + '"><button class="track-button">Track</button></a></span><span class="d-block mt-2" style="font-weight:400;">Tokens Received</span><span class="d-block" style="font-weight:600;">' + c.toLocaleString() + ' $LAPE</span></td></tr>';
-					document.getElementById('dPotLottoHistoryTable').innerHTML = document.getElementById('dPotLottoHistoryTable').innerHTML + '<tr style="font-weight:600;"><td class="py-3">' + a + ' UTC</td><td class="py-3">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" href="https://testnet.bscscan.com/token/' + LAPE_CONTRACT_ADDRESS + '?a=' + b + '"><button class="track-button">Track</button></a></td><td class="py-3">' + c.toLocaleString() + ' $LAPE</td></tr>';
+					document.getElementById('mPotLottoHistoryTable').innerHTML =  document.getElementById('mPotLottoHistoryTable').innerHTML + '<tr><td class="py-3"><span class="d-block" style="font-weight:400;">Date</span><span class="d-block" style="font-weight:600;">' + a + ' UTC</span><span class="d-block mt-2" style="font-weight:400;">Wallet Address</span><span class="d-block" style="font-weight:600;">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" target="_blank" href="https://testnet.bscscan.com/token/' + LAPE_CONTRACT_ADDRESS + '?a=' + b + '"><button class="track-button">Track</button></a></span><span class="d-block mt-2" style="font-weight:400;">Tokens Received</span><span class="d-block" style="font-weight:600;">' + c.toLocaleString() + ' $LAPE</span></td></tr>';
+					document.getElementById('dPotLottoHistoryTable').innerHTML = document.getElementById('dPotLottoHistoryTable').innerHTML + '<tr style="font-weight:600;"><td class="py-3">' + a + ' UTC</td><td class="py-3">' + b.slice(0,10) + '...' + b.slice(34,50) + '<a class="ms-2" target="_blank" href="https://testnet.bscscan.com/token/' + LAPE_CONTRACT_ADDRESS + '?a=' + b + '"><button class="track-button">Track</button></a></td><td class="py-3">' + c.toLocaleString() + ' $LAPE</td></tr>';
 					console.log('Time: ' + data[x][0] + ' Address: ' + data[x][1] + ' Amount: ' + data[x][2]);
 				}
 				
 				console.log(data);
 	});
-			
-		
-			
-			/*
-	contract.methods.lottoCurrentPotLottoTokens().call().then(function(lottoCurrentPotLottoTokens){
-	document.getElementById("currentPotLottoTokens").innerHTML = parseInt(lottoCurrentPotLottoTokens/1000000000)  + " $LAPE";
-	});
-			
-		contract.methods.lottoPotLottoHistory(0,0,1,0).call().then(function(lastPotLottoDetails){
-	document.getElementById("recentPotLottoPayoutDateTime").innerHTML = lastPotLottoDetails[0] * 1000;
-	document.getElementById("recentPotLottoPayoutTokens").innerHTML = parseInt(lastPotLottoDetails[2]/1000000000)  + " $LAPE";
-			console.log("lastPotLottoDetails);
-	});
-			
-			contract.methods.lottoTransactionLottoHistory(0,0,10,0).call().then(function(transactionLottoResults){
-			console.log(transactionLottoResults);
-	});
-			
-			contract.methods.lottoPotLottoHistory(0,0,10,0).call().then(function(potLottoResults){
-			console.log(potLottoResults);
-	});
-		*/	
+				
 		}
 		catch(e){
 			console.log(e.message);	
