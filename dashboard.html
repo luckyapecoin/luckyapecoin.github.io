@@ -643,13 +643,13 @@ async function getPriceInBNBUSD(){
     priceInBNB = await calcSell(tokensToSell)/tokensToSell; // calculate TOKEN price in BNB
     priceInUSD = priceInBnb * BNBPrice;
     console.log( 'LAPE VALUE IN BNB : ' + priceInBNB + ' | Just convert it to USD ' );
-    console.log('LAPE VALUE IN USD: ' + priceInUSD ); // convert the token price from BNB to USD based on the retrived BNB value
+    console.log('LAPE VALUE IN USD: ' + priceInUSD); // convert the token price from BNB to USD based on the retrived BNB value
     //setTimeout(getPriceInBNBUSD(),1000);
 }
  
 	
 getPriceInBNBUSD().then(function(){
-console.log('TEST DONE');
+console.log('TEST DONE PRICE IN BNB ' + priceInBNB + ' PRICE IN USD ' + priceInUSD);
 });
   
 }catch(e){
