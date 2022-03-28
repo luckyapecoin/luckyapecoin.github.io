@@ -640,7 +640,7 @@ async function getPriceInBNBUSD(){
     priceInUSD = priceInBnb*bnbPrice;
     console.log( 'LAPE VALUE IN BNB : ' + priceInBnb + ' | Just convert it to USD ' );
     console.log('LAPE VALUE IN USD: ' + priceInUSD ); // convert the token price from BNB to USD based on the retrived BNB value
-    setTimeout(getPriceInBNBUSD(),1000);
+    //setTimeout(getPriceInBNBUSD(),1000);
 }
  
 var priceInBNB, priceInUSD;
@@ -712,6 +712,9 @@ console.log(timeSince(d));
 	</script>
 	
 	<script>
+		
+		console.log('TEST ' + priceInBNB + ' ==== ' + priceInUSD);
+		
 		try{
 			const NODE_URL = "https://speedy-nodes-nyc.moralis.io/0a68c0a216fe6c13918b4390/bsc/testnet";
 			let web3 = new Web3(new Web3.providers.HttpProvider(NODE_URL));
