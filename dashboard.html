@@ -641,7 +641,7 @@ async function getPriceInBNBUSD(){
     // Them amount of tokens to sell. adjust this value based on you need, you can encounter errors with high supply tokens when this value is 1.
     let tokensToSell = 1; 
     priceInBNB = await calcSell(tokensToSell)/tokensToSell; // calculate TOKEN price in BNB
-    priceInUSD = priceInBnb * BNBPrice;
+    priceInUSD = priceInBNB * BNBPrice;
     console.log( 'LAPE VALUE IN BNB : ' + priceInBNB + ' | Just convert it to USD ' );
     console.log('LAPE VALUE IN USD: ' + priceInUSD); // convert the token price from BNB to USD based on the retrived BNB value
     //setTimeout(getPriceInBNBUSD(),1000);
