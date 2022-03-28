@@ -751,7 +751,7 @@ console.log('TEST DONE PRICE IN BNB ' + priceInBNB + ' PRICE IN USD ' + priceInU
 		}
 })
 }
-,3000);
+,1000);
   
 }
 catch(e){
@@ -785,8 +785,8 @@ function timeSince(timeStamp) {
 	 secondsPast = (now.getTime() - timeStamp.getTime() ) / 1000;
     if(secondsPast < 60){
 	    let a = parseInt(secondsPast);
-	    //return a + (a > 1 ? ' secs ago' : ' sec ago');
-	    return '1 min ago';
+	    return a + (a > 1 ? ' secs ago' : ' sec ago');
+	    //return '1 min ago';
     }
     if(secondsPast < 3600){
 	    let a = parseInt(secondsPast/60);
