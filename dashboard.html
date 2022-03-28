@@ -591,8 +591,6 @@ async function run(){
 	var priceInBNB, priceInUSD;	
 	</script>
 	<script>
-		
-		
 	try{
 let web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545");
 async function calcSell(tokensToSell){
@@ -648,7 +646,9 @@ async function getPriceInBNBUSD(){
 }
  
 	
-getPriceInBNBUSD().then(function(){
+setInterval(function(){
+	
+	getPriceInBNBUSD().then(function(){
 console.log('TEST DONE PRICE IN BNB ' + priceInBNB + ' PRICE IN USD ' + priceInUSD);
 	try{
 			const NODE_URL = "https://speedy-nodes-nyc.moralis.io/0a68c0a216fe6c13918b4390/bsc/testnet";
@@ -749,9 +749,12 @@ console.log('TEST DONE PRICE IN BNB ' + priceInBNB + ' PRICE IN USD ' + priceInU
 		catch(e){
 			console.log(e.message);	
 		}
-});
+})
+}
+,3000);
   
-}catch(e){
+}
+catch(e){
   console.log(e.message);  
 }
 	</script>
