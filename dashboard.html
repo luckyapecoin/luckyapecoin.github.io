@@ -663,14 +663,14 @@ console.log('TEST DONE PRICE IN BNB ' + priceInBNB + ' PRICE IN USD ' + priceInU
 		toLocaleString("en-US", {minimumFractionDigits:"2"});
 		*/
 	document.getElementById("totalAllLottoTokensSent").innerHTML = a.toLocaleString()  + " $LAPE";
-	document.getElementById("totalAllLottoTokensSentInUSD").innerHTML = b.toLocaleString("en-US", {minimumFractionDigits:"1"})  + " USD";
+	document.getElementById("totalAllLottoTokensSentInUSD").innerHTML = b.toLocaleString("en-US", {minimumFractionDigits:2,maximumFractionDigits:2})  + " USD";
 	});
 	
 			contract.methods.lottoCurrentPotLottoTokens().call().then(function(data){
 				let a = parseInt(data/1000000000);
 				let b = parseFloat(a*priceInUSD);
 	document.getElementById("currentPotLottoTokens").innerHTML = a.toLocaleString()  + " $LAPE";
-				document.getElementById("currentPotLottoTokensInUSD").innerHTML = b.toLocaleString("en-US", {minimumFractionDigits:"1"})  + " USD";
+				document.getElementById("currentPotLottoTokensInUSD").innerHTML = b.toLocaleString("en-US", {minimumFractionDigits:2,maximumFractionDigits:2})  + " USD";
 				});
 			
 			contract.methods.lottoPotLottoHistory(0,0,1,0).call().then(function(data){
