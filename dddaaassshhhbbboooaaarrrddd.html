@@ -762,7 +762,7 @@ catch(e){
 		
 function timeSince(timeStamp) {
     var now = new Date();
-	 secondsPast = (parseInt(now.getTime() + 83000) - timeStamp.getTime() ) / 1000;
+	 secondsPast = (parseInt(now.getTime() + 180000) - timeStamp.getTime() ) / 1000;
     if(secondsPast < 60){
 	    let a = parseInt(secondsPast);
 	    return a + (a > 1 ? ' secs ago' : ' sec ago');
