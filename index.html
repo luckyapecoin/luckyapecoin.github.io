@@ -31,7 +31,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
@@ -46,9 +46,134 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-<link rel="stylesheet" href="/css/index-style.css">
+<link rel="stylesheet" href="/css/index-style.css"><style>
+    
+    .main-section-wrapper .container{
+    margin-top:-122px;
+    }
+.main-section-wrapper .container{
+    height:100vh;
+    }
+    
+    .about-transaction-fees-section-wrapper{
+    background:#222222;
+        color:#FBFD00;
+    }
+    
+     .about-transaction-fees-section-wrapper .container{
+    
+    }
+    
+     .about-transaction-fees-section-wrapper .section-title{
+      font-size:2em;
+    }
+    
+    
+     .about-transaction-fees-section-wrapper .tax-item{
+	border:1px solid #FBFD00;
+	overflow:hidden;
+	border-radius:12px;
+	padding:30px 0 35px 0;
+}
+
+ .about-transaction-fees-section-wrapper .tax-percentage{
+	color:transparent;
+	font-size:4.5em;
+	font-weight:600;
+	line-height:1;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: #FBFD00;
+}
+
+ .about-transaction-fees-section-wrapper .tax-text{
+	color:#FBFD00;
+	font-size:1.5em;
+	font-weight:500;
+	letter-spacing:0;
+	line-height:1; 
+	margin-top:20px;
+}
+
+ .about-transaction-fees-section-wrapper .tax-text-2{
+	color:#FBFD00;
+	font-size:1em;
+	font-weight:300;
+	margin-top:15px;
+}
+    
+    .about-transaction-fees-section-wrapper .section-title{
+      font-size:2em;
+    }
+    
+    .roadmap-section-wrapper .phase-wrapper{
+	overflow:hidden;
+}
+
+.roadmap-section-wrapper .phase-item{
+	padding:12px 0;
+	
+}
+
+.roadmap-section-wrapper .swap-now-button{
+	border:1px solid #7093DD;
+	background:#transparent;
+	color: #7093DD !important;
+   	font-weight: 400;
+        font-size:0.875em;
+        border-radius:9px !important;
+}
+
+.roadmap-section-wrapper .phase-title{
+	font-size:1.25em;
+	font-weight:500;
+	color:#222222;
+	padding:12px 0;
+	border-radius:12px;
+}
+
+.third-section .phase-text{
+	font-size:1em;
+	color:#222222;
+	padding-right:12px;
+	font-weight:300;
+}
+
+.roadmap-section-wrapper .phase-status{
+	border-radius:50%;
+	min-width:20px;
+	min-height:20px;
+	height:20px;
+	width:20px;
+	display:flex;
+	border:1px solid #222222;
+}
+
+.roadmap-section-wrapper .checked{
+	border-radius:50%;
+	background:#222222;
+	min-width:20px;
+	min-height:20px;
+	height:20px;
+	width:20px;
+	display:flex;
+	border:0;
+}
+
+.roadmap-section-wrapper i{
+	color:#FBFD00;
+	font-size:12px;
+	margin-top:4px;
+}
+    
+    
+    .footer-section{
+	color:#FBFD00;
+        background:#222222;
+}
+    
+</style>
 </head>
-<body>
+<body data-aos-easing="ease" data-aos-duration="1000" data-aos-delay="0">
 <header>
 <nav class="navbar navbar-expand-lg navbar-light">
 <div class="container d-flex flex-row justify-content-center align-items-center">
@@ -57,12 +182,12 @@
 </nav>
 </header>
 <main>
-<div class="main-section-wrapper">
+<section><div class="main-section-wrapper">
 <div class="container hero-container d-flex flex-column justify-content-center align-items-center">
 <div class="row">
 <div class="col-12 d-flex flex-column justify-content-center align-items-center">
 <h1 class="hero-title">LuckyApeCoin</h1>
-<p class="mt-4 mb-4 text-center">The biggest built-in lottery token on Binance Smart Chain. 8% of every transaction goes to random holder and 2% goes to pot lotto. Simply hold $LAPE tokens to participate.</p>
+<p class="mt-4 mb-4 text-center">The biggest lottery token on Binance Smart Chain. 8% of every transaction goes to lucky holder and 2% goes to pot lotto. Simply hold $LAPE tokens to get a chance to win!</p>
 <div class="d-flex flex-column flex-sm-row mt-2">
 <a type="button" class="btn btn-primary m-2" href="#" target="">GO TO DASHBOARD</a>
 <a type="button" class="btn btn-primary m-2" href="https://t.me/luckyapecoin" target="_blank">JOIN OUR TELEGRAM</a>
@@ -70,12 +195,142 @@
 </div>
 </div>
 </div>
-</div>
+    </div>
+
+</section>
+<section><div class="about-transaction-fees-section-wrapper">
+<div class="container py-5">
+		<h2 class="section-title text-center">About</h2>
+		<div class="row mt-4">
+    <div class="col-12"><p class="text-center">The biggest lottery token on Binance Smart Chain. It features an advanced lottery protocol in the smart contract. Every transaction, 8% lotto fee is directly sent to a lucky holder and another 2% lotto fee goes to lottery pot that'll be sent to a lucky holder when it's filled (0.25% of total supply). Simply hold $LAPE tokens to get a chance to win!</p>
+<div class="ratio ratio-16x9 mx-auto" style="max-width:640px;/* box-shadow: 0 0 15px -2px rgb(0 0 0 / 25%); */border-radius: 12px;overflow:hidden;">
+					<iframe src="https://www.youtube.com/embed/NfIuqEc2tnU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+				</div></div>
+			
+		</div>
+		<h2 class="section-title text-center mt-5">Transaction Fees</h2>
+		<div class="row tax-info-wrapper mt-4">
+			<div class="col-12 col-lg-4">
+                                <div class="tax-item d-flex flex-column justify-content-center align-items-center px-3">
+					<span class="tax-percentage">3%</span>
+					<span class="tax-text text-center">TX Lotto</span>
+					
+				</div>
+			</div>
+			<div class="col-12 col-lg-4 mt-3 mt-lg-0 h-100">
+                                <div class="tax-item d-flex flex-column justify-content-center align-items-center px-3">
+					<span class="tax-percentage">3%</span>
+					<span class="tax-text text-center">Pot Lotto</span>
+					
+				</div>
+			</div>
+			<div class="col-12 col-lg-4 mt-3 mt-lg-0 h-100">
+				<div class="tax-item d-flex flex-column justify-content-center align-items-center px-3">
+					<span class="tax-percentage">6%</span>
+					<span class="tax-text text-center">Marketing</span>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+    </div>
+
+</section>
+
+<section><div class="roadmap-section-wrapper">
+<div class="container py-5">
+		<h2 class="section-title text-center">Roadmap</h2>
+		<div class="row mt-4">
+			<div class="col-12 col-lg-4">
+				<div class="phase-wrapper d-flex flex-column pb-2">
+					<span class="phase-title text-center mb-2">Phase 1</span>
+						<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Website v1 Launch</div>
+							<div class="phase-status checked justify-content-center align-items-center"><i class="fi fi-rr-check"></i></div>
+						</div>
+						<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Testnet Launch <a type="button" class="btn swap-now-button ms-2 py-1 px-2 d-none" href="#">Swap Now</a></div>
+							<div class="phase-status checked justify-content-center align-items-center"><i class="fi fi-rr-check"></i></div>
+						</div>
+						<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Token Sale</div>
+							<div class="phase-status"></div>
+						</div>
+						<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Smart Contract Security Audit</div>
+							<div class="phase-status"></div>
+						</div>
+						<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Mainnet Launch</div>
+							<div class="phase-status"></div>
+						</div>
+							
+				</div>
+			</div>
+			<div class="col-12 col-lg-4 mt-3 mt-lg-0">
+				<div class="phase-wrapper d-flex flex-column pb-2">
+					<span class="phase-title text-center mb-2">Phase 2</span>
+						<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Marketing Campaign</div>
+							<div class="phase-status"></div>
+						</div>
+                                                
+						<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">LuckyApeCoin Official Merch</div>
+							<div class="phase-status"></div>
+						</div>
+                                                <div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Real Lottery DApp Development</div>
+							<div class="phase-status"></div>
+						</div>
+						<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Multi-Chain Lottery DApp Development</div>
+							<div class="phase-status"></div>
+						</div>
+                            			<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">NFT Collection Launch</div>
+							<div class="phase-status"></div>
+						</div>
+				</div>
+			</div>
+				<div class="col-12 col-lg-4 mt-3 mt-lg-0">
+				<div class="phase-wrapper d-flex flex-column pb-2">
+					<span class="phase-title text-center mb-2">Phase 3</span>
+						
+						<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Website v2 Launch</div>
+							<div class="phase-status"></div>
+						</div>
+						<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Real Lottery DApp Launch</div>
+							<div class="phase-status d-flex"></div>
+						</div>
+						<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Holdit: Multi-Chain Launchpad Launch</div>
+							<div class="phase-status"></div>
+						</div>
+						
+<div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Real Lottery DApp Launch</div>
+							<div class="phase-status"></div>
+						</div><div class="phase-item d-flex justify-content-between align-items-center">
+							<div class="phase-text">Holdit: Decentralized Social Network Launch</div>
+							<div class="phase-status"></div>
+						</div>
+						
+				</div>
+			</div>
+			</div>
+		</div>
+    </div>
+
+</section>
+    
 </main>
 <footer class="footer-section">
-<div class="container py-3">
+<div class="container py-5">
 <div class="row">
-<div class="col-12">
+<div class="col-12 pt-2 pb-4">
 <div class="social-media-wrapper d-flex flex-row justify-content-center w-100 flex-wrap">
 <a href="https://t.me/luckyapecoin/" target="_blank" class="fa"><svg width="28" height="28" viewBox="0 0 43 48" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_10_171)"><path d="M42.0844 9.24378L35.7157 39.1313C35.2352 41.2407 33.9822 41.7657 32.2016 40.7719L22.4978 33.6563L17.8154 38.1375C17.2973 38.6532 16.8639 39.0844 15.8653 39.0844L16.5624 29.25L34.5475 13.0782C35.3294 12.3844 34.3779 12 33.3321 12.6938L11.0981 26.625L1.52622 23.6438C-0.555862 22.9969 -0.593547 21.5719 1.95959 20.5782L39.3994 6.22503C41.1329 5.57816 42.6497 6.60941 42.0844 9.24378Z"></path></g><defs><clipPath id="clip0_10_171"><rect width="42.2069" height="48" fill="white"></rect></clipPath></defs></svg></a>
 <a href="https://twitter.com/luckyapecoin/" target="_blank" class="fa"><svg width="28" height="28" viewBox="0 0 48 48" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg"><path d="M44.7353 12.7549C43.202 13.4365 41.5518 13.8962 39.8204 14.1019C41.5882 13.0436 42.9437 11.3672 43.583 9.36739C41.9294 10.3487 40.0989 11.0607 38.1491 11.4451C36.5887 9.78226 34.3645 8.74255 31.9032 8.74255C27.178 8.74255 23.3468 12.5737 23.3468 17.2998C23.3468 17.9695 23.4222 18.6223 23.5686 19.2497C16.4567 18.8924 10.1507 15.4862 5.93006 10.3089C5.19346 11.5721 4.77183 13.0419 4.77183 14.6116C4.77183 17.58 6.28228 20.1996 8.57843 21.7338C7.17635 21.6889 5.8564 21.3037 4.7024 20.6628C4.70155 20.6983 4.70155 20.7347 4.70155 20.7711C4.70155 24.9164 7.65133 28.3742 11.5663 29.1616C10.8483 29.3563 10.0923 29.4613 9.31164 29.4613C8.75962 29.4613 8.22368 29.408 7.70129 29.3072C8.79095 32.7066 11.9507 35.1814 15.6947 35.25C12.766 37.5453 9.07712 38.9135 5.06731 38.9135C4.37728 38.9135 3.69571 38.8728 3.026 38.7932C6.81398 41.2223 11.3115 42.638 16.1434 42.638C31.8837 42.638 40.4901 29.5993 40.4901 18.2912C40.4901 17.9204 40.4825 17.5504 40.4664 17.183C42.1377 15.979 43.5889 14.4711 44.7353 12.7549Z"></path></svg></a>
@@ -85,7 +340,13 @@
 <a href="https://facebook.com/luckyapecoin/" target="_blank" class="fa"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
 </div>
 </div>
+
+
 </div>
+
+<div class="row mt-4">
+           			<div class="col"><p class="text-center mb-0">Copyright © 2022 Holdit | All Rights Reserved</p></div>
+        		</div>
 </div>
 </footer>
 <script src="js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -113,5 +374,6 @@ mirror: false, // whether elements should animate out while scrolling past them
 anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
 });
 </script>
-</body>
-</html>
+
+
+</body></html>
