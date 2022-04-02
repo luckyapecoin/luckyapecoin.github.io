@@ -1,24 +1,41 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html lang="en"><head>
 <title>Dashboard | LuckyApeCoin</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The biggest fair launched built-in lottery token on Binance Smart Chain.">
+<meta name="description" content="The biggest lottery token on Binance Smart Chain. 8% of every transaction goes to lucky holder and 2% goes to lottery pot. Simply hold $LAPE tokens to get a chance to win!">
 <meta name="keywords" content="LAPE,LuckyApeCoin,apecoin,bitcoin,dogecoin,doge,defi,coinbase,coinmarketcap,coinmarket,bscscan,whitebit,coingecko,cryptocurrency,crypto,pancakeswap,dex,etherium,eth,btc">
 <meta property="og:title" content="LuckyApeCoin">
 <meta property="og:url" content="https://luckyapecoin.com">
 <meta property="og:type" content="”website”">
-<meta property="og:description" content="The biggest fair launched built-in lottery token on Binance Smart Chain.">
+<meta property="og:description" content="The biggest lottery token on Binance Smart Chain. 8% of every transaction goes to lucky holder and 2% goes to lottery pot. Simply hold $LAPE tokens to get a chance to win!">
 <meta property="og:image" content="/images/luckyapecoin-logo.png">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+<link rel="shortcut icon" type="image/png" href="/images/icons/favicon.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="840">
 <meta property="og:image:height" content="840">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:description" content="The biggest fair launched built-in lottery token on Binance Smart Chain.">
+<meta name="twitter:description" content="The biggest lottery token on Binance Smart Chain. 8% of every transaction goes to lucky holder and 2% goes to lottery pot. Simply hold $LAPE tokens to get a chance to win!">
 <meta name="twitter:title" content="LuckyApeCoin">
 <meta name="twitter:site" content="@luckyapecoin">
 <meta name="twitter:url" content="https://luckyapecoin.com">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+<link rel="manifest" href="/images/icons/manifest.json">
 <link href="css/uicons-regular-rounded.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -347,17 +364,25 @@ font-size:5em;
 
 
 <div class="col-12 col-lg-4 pb-2">
-    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Lottery Tokens Distributed</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="totalAllLottoTokensSent">0 $LAPE</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="totalAllLottoTokensSentInUSD">0.00 USD</span>
-</div>   
+<div style="position:relative;overflow:hidden">
+    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Lottery Tokens Distributed</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="totalAllLottoTokensSent">0 $LAPE</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="totalAllLottoTokensSentInUSD">0.00 USD</span></div>   
+	<div style="border-radius:100%;width:45px !important;height:45px !important;position:absolute;top:50%;transform: translateY(-50%);left:-22.5px;background:#FBFD00;z-index:1;border:2px solid #222222;"></div>
+	<div style="border-radius:100%;width:45px !important;height:45px !important;position:absolute;top:50%;transform: translateY(-50%);right:-22.5px;background:#FBFD00;z-index:1;border:2px solid #222222;"></div>
+</div>
 </div>
 <div class="col-12 col-lg-4 pb-2">
-    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Current Pot Lotto</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="currentPotLottoTokens">0 $LAPE</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="currentPotLottoTokensInUSD">0.00 USD</span>
-</div>   
-</div><div class="col-12 col-lg-4 pb-2">
-    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4">
-	    <span style="color:rgb(251, 253, 0);">Recent Pot Lotto Payout</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="recentPotLottoPayoutDateTime">0 sec ago</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="recentPotLottoPayoutTokens">0 $LAPE
-</span>
-</div>   
+<div style="position:relative;overflow:hidden">
+    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Current Pot Lotto</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="currentPotLottoTokens">0 $LAPE</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="currentPotLottoTokensInUSD">0.00 USD</span></div>   
+	<div style="border-radius:100%;width:45px !important;height:45px !important;position:absolute;top:50%;transform: translateY(-50%);left:-22.5px;background:#FBFD00;z-index:1;border:2px solid #222222;"></div>
+	<div style="border-radius:100%;width:45px !important;height:45px !important;position:absolute;top:50%;transform: translateY(-50%);right:-22.5px;background:#FBFD00;z-index:1;border:2px solid #222222;"></div>
+</div>
+</div>
+<div class="col-12 col-lg-4 pb-2">
+<div style="position:relative;overflow:hidden">
+    <div style="background:#222222;border-radius:12px;height:135px;" class="dashboard-card-wrapper d-flex flex-column align-items-center p-4"><span style="color:rgb(251, 253, 0);">Recent Pot Lotto Payout</span><span class="mt-2" style="color:rgb(251, 253, 0);font-size:1.25em;font-weight:700" id="recentPotLottoPayoutDateTime">0 sec ago</span><span class="mt-1" style="color:rgb(251, 253, 0);font-size:0.875em;font-weight:400;" id="recentPotLottoPayoutTokens">0 $LAPE</span></div>   
+	<div style="border-radius:100%;width:45px !important;height:45px !important;position:absolute;top:50%;transform: translateY(-50%);left:-22.5px;background:#FBFD00;z-index:1;border:2px solid #222222;"></div>
+	<div style="border-radius:100%;width:45px !important;height:45px !important;position:absolute;top:50%;transform: translateY(-50%);right:-22.5px;background:#FBFD00;z-index:1;border:2px solid #222222;"></div>
+</div>
 </div>
 
 
@@ -831,12 +856,4 @@ console.log(timeSince(d));
 
 });
 		</script>
-
-
-
-
-
-
-
-
 </body></html>
